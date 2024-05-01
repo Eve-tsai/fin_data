@@ -30,8 +30,8 @@ base_url= "https://raw.githubusercontent.com/richie99999/fin_data/main/"
 import pandas as pd
 import io
 import requests
-
-for i in range (len(stock)):
+#法1
+for i in range (len(download)):
     url = base_url + f"{download[i]}.csv"
     response = requests.get(url)
     if response.status_code == 200:
@@ -40,6 +40,14 @@ for i in range (len(stock)):
         print(squirrel.head())
     else:
         print("Failed to download CSV file")
+#法2
+for i in range (len(download)):
+    url = base_url + f"{download[i]}.csv"
+    df=pd.read_csv(url,index_col=0)
+    print("\nstock number = ", download[i])
+    print(df.head(5))
+
+
 
 
     
