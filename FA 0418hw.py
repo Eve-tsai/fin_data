@@ -20,6 +20,26 @@ for i in range(len(stock)):
     file_path = f"C:/Users/sunny/Desktop/financial applied/輸出csv/{stock[i]}.csv"
     data[i].to_csv(file_path,header=True)
    
+#2
+#--Github下載
+download = ["1225.TW","1234.TW","1235.TW","1301.TW","1303.TW",
+            "1617.TW","2002.TW","2101.TW","2201.TW","2882.TW"]
+
+base_url= "https://raw.githubusercontent.com/richie99999/fin_data/main/"
+
+import pandas as pd
+import io
+import requests
+
+for i in range (len(stock)):
+    url = base_url + f"{download[i]}.csv"
+    response = requests.get(url)
+    if response.status_code == 200:
+        squirrel = pd.read_csv(io.StringIO(response.text))
+        print("\nstock number = ", download[i])
+        print(squirrel.head())
+    else:
+        print("Failed to download CSV file")
 
     
 '''
@@ -31,4 +51,3 @@ with open(csv_file_path, mode='w', newline='') as file:
     writer.writerows(data)
     
 '''
-
