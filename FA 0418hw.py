@@ -20,7 +20,7 @@ for i in range(len(stock)):
     file_path = f"C:/Users/sunny/Desktop/financial applied/輸出csv/{stock[i]}.csv"
     data[i].to_csv(file_path,header=True)
    
-#2
+
 #--Github下載
 download = ["1225.TW","1234.TW","1235.TW","1301.TW","1303.TW",
             "1617.TW","2002.TW","2101.TW","2201.TW","2882.TW"]
@@ -41,6 +41,7 @@ for i in range (len(stock)):
     else:
         print("Failed to download CSV file")
 
+
     
 '''
 with open(csv_file_path, mode='w', newline='') as file:
@@ -51,3 +52,4 @@ with open(csv_file_path, mode='w', newline='') as file:
     writer.writerows(data)
     
 '''
+
